@@ -1,0 +1,27 @@
+<table class="table table-bordered table-striped table-hover tb_modal">
+	<thead>
+		<th>No.Subcon</th>
+		<th>Asal</th>
+		<th>Tujuan</th>
+		<th>Angkutan</th>
+		<th>Harga</th>
+	</thead>
+	<tbody>
+	  @foreach( $fix as $val )
+	  <tr style="cursor: pointer;" onclick="pilih_kontrak(this)">
+		<td>
+			{{$val['ksd_id']}}
+			<input type="hidden" class="id_kontrak" value="{{$val['ksd_id']}}">
+		</td>
+		<td>{{$val['ksd_asal']}}</td>
+		<td>{{$val['ksd_tujuan']}}</td>
+		<td>{{$val['ksd_angkutan']}}</td>
+		<td>{{number_format($val['ksd_harga'])}}</td>
+	  </tr>
+	  @endforeach
+	</tbody>
+</table>
+
+<script type="text/javascript">
+	$('.tb_modal').DataTable();
+</script>
